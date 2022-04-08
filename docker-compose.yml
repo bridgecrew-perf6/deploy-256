@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    image: postgres:14
+    env_file:
+      - .env
+    networks:
+      - gettrip-network
+
+  backend:
+    build: .  #TODO: TBD after github actions task
+    env_file:
+      - .env
+    ports:
+      - 8080:80
+    networks:
+      - gettrip-network
+
+  frontend:
+    build: .  #TODO: TBD after github actions task
+    env_file:
+      - .env
+    ports:
+      - 8081:80
+    networks:
+      - gettrip-network
+
+networks:
+  gettrip-network:
