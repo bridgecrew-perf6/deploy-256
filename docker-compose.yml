@@ -5,25 +5,27 @@ services:
     env_file:
       - .env
     networks:
-      - gettrip-network
+      - gettrip-backend
 
   backend:
     build: .  #TODO: TBD after github actions task
     env_file:
       - .env
     ports:
-      - 8080:80
+      - 8080:5000
     networks:
-      - gettrip-network
+      - gettrip-backend
+      - gettrip-frontend
 
   frontend:
     build: .  #TODO: TBD after github actions task
     env_file:
       - .env
     ports:
-      - 8081:80
+      - 80:5000
     networks:
-      - gettrip-network
+      - gettrip-frontend
 
 networks:
-  gettrip-network:
+  gettrip-backend:
+  gettrip-frontend:
