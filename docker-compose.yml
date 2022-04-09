@@ -8,7 +8,7 @@ services:
       - gettrip-backend
 
   backend:
-    build: .  #TODO: TBD after github actions task
+    image: ghcr.io/gettrip/backend:v0.1.0
     env_file:
       - .env
     ports:
@@ -18,7 +18,7 @@ services:
       - gettrip-frontend
 
   frontend:
-    build: .  #TODO: TBD after github actions task
+    image: ghcr.io/gettrip/frontend:v0.1.0
     env_file:
       - .env
     ports:
