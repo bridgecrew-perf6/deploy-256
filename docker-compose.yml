@@ -8,7 +8,7 @@ services:
       - gettrip-backend
 
   backend:
-    image: ghcr.io/gettrip/backend:v0.1.0
+    image: ghcr.io/gettrip/backend:v0.1.1
     env_file:
       - .env
     ports:
@@ -16,6 +16,9 @@ services:
     networks:
       - gettrip-backend
       - gettrip-frontend
+    volumes:
+      - ./config:/webapp/config:ro
+
 
   frontend:
     image: ghcr.io/gettrip/frontend:v0.1.0
