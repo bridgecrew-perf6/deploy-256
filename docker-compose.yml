@@ -6,9 +6,11 @@ services:
       - .env
     networks:
       - gettrip-backend
+    volumes:
+      - ./data/postgresql:/var/lib/postgresql/data
 
   backend:
-    image: ghcr.io/gettrip/backend:v0.1.1
+    image: ghcr.io/gettrip/backend:v0.1.2
     env_file:
       - .env
     ports:
@@ -21,7 +23,7 @@ services:
 
 
   frontend:
-    image: ghcr.io/gettrip/frontend:v0.1.0
+    image: ghcr.io/gettrip/frontend:v0.1.2
     env_file:
       - .env
     ports:
