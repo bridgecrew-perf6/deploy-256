@@ -2,6 +2,7 @@ version: '3'
 services:
   db:
     image: postgres:14
+    restart: always
     env_file:
       - .env
     networks:
@@ -11,6 +12,7 @@ services:
 
   backend:
     image: ghcr.io/gettrip/backend:v0.1.2
+    restart: always
     env_file:
       - .env
     ports:
@@ -24,6 +26,7 @@ services:
 
   frontend:
     image: ghcr.io/gettrip/frontend:v0.1.2
+    restart: always
     env_file:
       - .env
     ports:
